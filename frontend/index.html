@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>KrishnaAI — Your Mental Wellness Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<!-- Ambient background layers -->
+<div class="ambient" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grain"></div>
+</div>
+
+<!-- App shell -->
+<div class="shell">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+        <!-- lotus petals -->
+        <ellipse cx="24" cy="14" rx="3.5" ry="7" fill="currentColor" opacity="0.7"/>
+        <ellipse cx="24" cy="14" rx="3.5" ry="7" fill="currentColor" opacity="0.7" transform="rotate(45 24 24)"/>
+        <ellipse cx="24" cy="14" rx="3.5" ry="7" fill="currentColor" opacity="0.7" transform="rotate(90 24 24)"/>
+        <ellipse cx="24" cy="14" rx="3.5" ry="7" fill="currentColor" opacity="0.7" transform="rotate(135 24 24)"/>
+        <ellipse cx="24" cy="14" rx="3.5" ry="7" fill="currentColor" opacity="0.7" transform="rotate(180 24 24)"/>
+        <ellipse cx="24" cy="14" rx="3.5" ry="7" fill="currentColor" opacity="0.7" transform="rotate(225 24 24)"/>
+        <ellipse cx="24" cy="14" rx="3.5" ry="7" fill="currentColor" opacity="0.7" transform="rotate(270 24 24)"/>
+        <ellipse cx="24" cy="14" rx="3.5" ry="7" fill="currentColor" opacity="0.7" transform="rotate(315 24 24)"/>
+        <circle cx="24" cy="24" r="4" fill="currentColor"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">KrishnaAI</span>
+        <span class="logo-sub">Mental Wellness</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" onclick="newChat()">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        New Conversation
+      </button>
+    </nav>
+
+    <div class="sidebar-sources">
+      <p class="sidebar-label">Knowledge Sources</p>
+      <ul class="source-list">
+        <li>🕉️ Bhagavad Gita</li>
+        <li>📖 Meditations — Marcus Aurelius</li>
+        <li>🌿 Tao Te Ching</li>
+        <li>☸️ The Dhammapada</li>
+        <li>🧠 Feeling Good (CBT)</li>
+        <li>🫀 The Body Keeps the Score</li>
+        <li>🪷 The Power of Now</li>
+        <li>🎯 The Happiness Trap (ACT)</li>
+        <li>⚡ Atomic Habits</li>
+        <li>💡 Emotional Intelligence</li>
+        <li>🔢 Thinking, Fast and Slow</li>
+        <li>📜 Tao of Seneca (3 vols.)</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <p class="disclaimer">KrishnaAI offers wisdom-based guidance, not medical advice. If you're in crisis, please contact a professional.</p>
+    </div>
+  </aside>
+
+  <!-- Main chat area -->
+  <main class="chat">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <button class="menu-btn" id="menu-btn" onclick="toggleSidebar()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <h1 class="topbar-title">KrishnaAI</h1>
+      <div class="topbar-badge">Mental Wellness</div>
+    </header>
+
+    <!-- Messages -->
+    <section class="messages" id="messages"></section>
+
+    <!-- Welcome screen -->
+    <div class="welcome" id="welcome">
+      <div class="welcome-lotus" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="35" rx="10" ry="25" fill="url(#lg1)" opacity="0.85"/>
+          <ellipse cx="60" cy="35" rx="10" ry="25" fill="url(#lg1)" opacity="0.85" transform="rotate(45 60 60)"/>
+          <ellipse cx="60" cy="35" rx="10" ry="25" fill="url(#lg1)" opacity="0.85" transform="rotate(90 60 60)"/>
+          <ellipse cx="60" cy="35" rx="10" ry="25" fill="url(#lg1)" opacity="0.85" transform="rotate(135 60 60)"/>
+          <ellipse cx="60" cy="35" rx="10" ry="25" fill="url(#lg1)" opacity="0.85" transform="rotate(180 60 60)"/>
+          <ellipse cx="60" cy="35" rx="10" ry="25" fill="url(#lg1)" opacity="0.85" transform="rotate(225 60 60)"/>
+          <ellipse cx="60" cy="35" rx="10" ry="25" fill="url(#lg1)" opacity="0.85" transform="rotate(270 60 60)"/>
+          <ellipse cx="60" cy="35" rx="10" ry="25" fill="url(#lg1)" opacity="0.85" transform="rotate(315 60 60)"/>
+          <circle cx="60" cy="60" r="12" fill="url(#lg2)"/>
+          <defs>
+            <linearGradient id="lg1" x1="60" y1="10" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#c9a96e"/>
+              <stop offset="1" stop-color="#e8cfa0" stop-opacity="0.3"/>
+            </linearGradient>
+            <linearGradient id="lg2" x1="48" y1="48" x2="72" y2="72" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#c9a96e"/>
+              <stop offset="1" stop-color="#f0deb0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h2 class="welcome-title">A sanctuary for the mind</h2>
+      <p class="welcome-sub">Share what's weighing on you. I'll listen with ancient wisdom and modern understanding.</p>
+      <div class="prompts">
+        <button class="prompt-chip" onclick="sendPrompt(this)">I can't stop overthinking everything</button>
+        <button class="prompt-chip" onclick="sendPrompt(this)">I feel anxious all the time and don't know why</button>
+        <button class="prompt-chip" onclick="sendPrompt(this)">How do I quiet my mind when everything feels chaotic?</button>
+        <button class="prompt-chip" onclick="sendPrompt(this)">I keep having negative thoughts about myself</button>
+        <button class="prompt-chip" onclick="sendPrompt(this)">I feel stuck and can't find motivation</button>
+        <button class="prompt-chip" onclick="sendPrompt(this)">How can I build better habits and break bad ones?</button>
+      </div>
+    </div>
+
+    <!-- Composer -->
+    <div class="composer-wrap">
+      <div class="composer" id="composer">
+        <textarea
+          id="input"
+          class="composer-input"
+          placeholder="Share what's on your mind…"
+          rows="1"
+          maxlength="2000"
+        ></textarea>
+        <button class="send-btn" id="send-btn" aria-label="Send" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <p class="composer-note">KrishnaAI may make mistakes. For crisis support, call <strong>iCall: 9152987821</strong></p>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
